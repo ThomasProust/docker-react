@@ -1,0 +1,8 @@
+sudo: required
+services: 
+  - docker
+before_install:
+  - docker build -t sjillen/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run sjillen/docker-react npm run test -- --coverage
